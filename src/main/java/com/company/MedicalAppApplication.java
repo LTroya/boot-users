@@ -50,12 +50,6 @@ public class MedicalAppApplication {
 			logger.info("------------------------------------------");
 			logger.info("Find one: " + user.toString());
 
-			user.setName("Luis");
-			user.setLastName("Troya");
-			userRepository.save(user);
-			logger.info("------------------------------------------");
-			logger.info("Updating one: " + user.toString());
-
 			logger.info("------------------------------------------");
 			logger.info("Number of users: " + userRepository.count());
 		};

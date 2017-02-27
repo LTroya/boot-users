@@ -40,6 +40,7 @@ public class AppExceptionHandler {
     @ResponseBody
     public MessageDTO handleIdsNotMatchException() { return processExceptionReason("exception.object.id_not_match"); }
 
+    // TODO: Make a util with this to not duplicated it
     private MessageDTO processExceptionReason(String key) {
         Locale currentLocale = LocaleContextHolder.getLocale();
         String msg = msgSource.getMessage(key, null, currentLocale);

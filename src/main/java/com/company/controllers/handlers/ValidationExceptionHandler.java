@@ -85,26 +85,26 @@ public class ValidationExceptionHandler {
      * @param e DataIntegrityViolationException
      * @return Status: Conflict, Messages: MessageDTO {messages: [], type: ERROR}
      */
-    @ResponseStatus(value = HttpStatus.CONFLICT)  // 409
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    @ResponseBody
-    public MessageDTO conflict(HttpServletRequest req, DataIntegrityViolationException e) {
-        MessageDTO message = null;
-        Locale currentLocale = LocaleContextHolder.getLocale();
-        String rootMsg = ValidationUtil.getRootCause(e).getMessage();
-        if (rootMsg != null) {
-            Optional<Map.Entry<String, String>> entry = constraintCodeMap.entrySet().stream()
-                    .filter((it) -> StringUtil.containsIgnoreCase(rootMsg, it.getKey()))
-                    .findAny();
-
-            if (entry.isPresent()) {
-                String value = entry.get().getValue();
-                String msg = msgSource.getMessage(value, null, currentLocale);
-                message = new MessageDTO(MessageDTO.MessageType.ERROR, new MessageBody(value, msg));
-            }
-        }
-        return message;
-    }
+//    @ResponseStatus(value = HttpStatus.CONFLICT)  // 409
+//    @ExceptionHandler(DataIntegrityViolationException.class)
+//    @ResponseBody
+//    public MessageDTO conflict(HttpServletRequest req, DataIntegrityViolationException e) {
+//        MessageDTO message = null;
+//        Locale currentLocale = LocaleContextHolder.getLocale();
+//        String rootMsg = ValidationUtil.getRootCause(e).getMessage();
+//        if (rootMsg != null) {
+//            Optional<Map.Entry<String, String>> entry = constraintCodeMap.entrySet().stream()
+//                    .filter((it) -> StringUtil.containsIgnoreCase(rootMsg, it.getKey()))
+//                    .findAny();
+//
+//            if (entry.isPresent()) {
+//                String value = entry.get().getValue();
+//                String msg = msgSource.getMessage(value, null, currentLocale);
+//                message = new MessageDTO(MessageDTO.MessageType.ERROR, new MessageBody(value, msg));
+//            }
+//        }
+//        return message;
+//    }
 
     /**
      * Return a MessageDTO {messages: [], type: ERROR}'s object with the message.properties's key and

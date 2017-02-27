@@ -19,3 +19,16 @@
  * Configurar desarrollo y testing con H2 y en producción usar MySQL
  * Agregar la creación de los indices en el XML de las tablas de liquibase
  
+**JSON to test**
+
+    {
+      "id": null,
+      "name": "Connor",
+      "lastName": "Long",
+      "email": "long@gmail.com",
+      "username": "clong",
+      "password": "Nq3cf0xn",
+      "sex": "MALE",
+      "phone": "234-856-7039",
+      "country": "New York"
+    }
